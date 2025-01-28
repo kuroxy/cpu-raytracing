@@ -9,34 +9,41 @@ Sphere::Sphere(float3 position, float radius)
 
 }
 
-RayHitInfo Sphere::Intersect(const Ray& ray) const
+RayHitInfo Sphere::Intersect(const Ray& ray, float rayTMin, float rayTMax) const
 {
     RayHitInfo hit{};
     float3 oc = position - ray.GetOrigin();
    
+
     float a = sqrLength(ray.GetDirection());
-    float b = -2.f * dot(ray.GetDirection(), oc);
+    float h = dot(ray.GetDirection(), oc);
     float c = sqrLength(oc) - radius * radius;
 
-    float discriminant = b * b - 4 * a * c;
-  
-
+    float discriminant = h * h - a * c;
+ 
     if (discriminant < 0.f)
     {
         hit.hit = false;
         return hit;
     }
 
-    float solved = (-b - std::sqrt(discriminant)) / (2.0f * a);
+    float sqrtd = std::sqrt(discriminant);
 
-    if (solved > 0.0) {
-        float3 hitPosition = ray.At(solved);
-        float3 normal = normalize(hitPosition - position);
-        hit.hit = true;
-        hit.worldPosition = hitPosition;
-        hit.worldNormal = normal;
-
-        return hit;
+    // Find the nearest root that lies in the acceptable range.
+    float root = (h - sqrtd) / a;
+    if (root <= rayTMin || rayTMax <= root) {
+        root = (h + sqrtd) / a;
+        if (root <= rayTMin || rayTMax <= root)
+        {
+            hit.hit = false;
+            return hit;
+        }
     }
+
+    hit.hit = true;
+    hit.distance = root;
+    hit.worldPosition = ray.At(root);
+    hit.set_face_normal(ray, (hit.worldPosition - position) / radius);
+
     return hit;
 }

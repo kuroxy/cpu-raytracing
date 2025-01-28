@@ -7,7 +7,7 @@ public:
 	Sphere() = default;
 	Sphere(float3 position, float radius);
 
-	RayHitInfo Intersect(const Ray& ray) const override;
+	RayHitInfo Intersect(const Ray& ray, float rayTMin, float rayTMax) const override;
 
 	float GetRadius() const { return radius; }
 	void SetRadius(float newRadius) { radius = newRadius; }

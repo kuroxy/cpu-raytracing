@@ -4,7 +4,8 @@
 
 #pragma once
 #include "Camera.h"
-#include "Sphere.h"
+#include "IntersectableList.h"
+
 
 namespace Tmpl8
 {
@@ -31,7 +32,7 @@ public:
 	float elapsedTime{0};
 
 	Camera mainCamera;
-	Sphere sphere;
+	IntersectableList world;
 
 };
 

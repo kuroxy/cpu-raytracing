@@ -11,9 +11,9 @@
 
 
 
-float4 RayColor(const Ray& r, const Sphere& sphere) {
+float4 RayColor(const Ray& r, const IntersectableList& world) {
 
-	RayHitInfo info = sphere.Intersect(r);
+	RayHitInfo info = world.Intersect(r,0.f, LARGE_FLOAT);
 	if (info.hit)
 	{
 		float3 normal = info.worldNormal;
@@ -36,11 +36,12 @@ float4 RayColor(const Ray& r, const Sphere& sphere) {
 // -----------------------------------------------------------
 void Game::Init()
 {
-	mainCamera = Camera(SCR_WIDTH, SCR_HEIGHT, 3.f);
-	sphere = Sphere(float3(0.f, 0.f, -5.f), 1.f);
+	mainCamera = Camera(SCR_WIDTH, SCR_HEIGHT, 1.f);
+
+	world.Add(make_shared<Sphere>(float3(0.f, 0.f, -1.f), .5f));
+	world.Add(make_shared<Sphere>(float3(0.f, -100.5f, -1.f), 100.f));
 
 
-	sphere.Intersect(Ray(float3(0.f),float3(0,0,-1.f)));
 }
 
 // -----------------------------------------------------------
@@ -65,7 +66,7 @@ void Game::Tick( float deltaTime )
 			float3 rayDirection = pixelCenter - mainCamera.GetPosition();
 			Ray r(mainCamera.GetPosition(), rayDirection);
 
-			screen->pixels[x + y * screen->width] = make_color(RayColor(r, sphere));
+			screen->pixels[x + y * screen->width] = make_color(RayColor(r, world));
 		}
 	}
 

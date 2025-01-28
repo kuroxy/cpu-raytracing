@@ -23,3 +23,4 @@ constexpr float INV2PI = 0.15915494309189533576888f;
 constexpr float TWOPI = 6.28318530717958647692528f;
 constexpr float SQRT_PI_INV = 0.56418958355f;
 constexpr float LARGE_FLOAT = 1e34f;
+

@@ -122,6 +122,7 @@
   </ItemDefinitionGroup>
   <!-- END Custom section -->
   <ItemGroup>
+    <ClCompile Include="src\IntersectableList.cpp" />
     <ClCompile Include="src\Sphere.cpp" />
     <ClCompile Include="src\Intersectable.cpp" />
     <ClCompile Include="src\Camera.cpp" />
@@ -149,6 +150,7 @@
     <ClInclude Include="include\Ray.h" />
     <ClInclude Include="include\Intersectable.h" />
     <ClInclude Include="include\Sphere.h" />
+    <ClInclude Include="include\IntersectableList.h" />
     <ClInclude Include="template\common.h" />
     <ClInclude Include="template\opencl.h" />
     <ClInclude Include="template\opengl.h" />
