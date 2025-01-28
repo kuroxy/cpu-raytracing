@@ -94,9 +94,9 @@ void main()
 	glfwWindowHint( GLFW_STENCIL_BITS, GL_FALSE );
 	glfwWindowHint( GLFW_RESIZABLE, GL_FALSE /* easier :) */ );
 #ifdef FULLSCREEN
-	window = glfwCreateWindow( SCRWIDTH, SCRHEIGHT, "Tmpl8-2024", glfwGetPrimaryMonitor(), 0 );
+	window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Tmpl8-2024", glfwGetPrimaryMonitor(), 0 );
 #else
-	window = glfwCreateWindow( SCRWIDTH, SCRHEIGHT, "Tmpl8-2024", 0, 0 );
+	window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Tmpl8-2024", 0, 0 );
 #endif
 	if (!window) FatalError( "glfwCreateWindow failed." );
 	glfwMakeContextCurrent( window );
@@ -135,8 +135,8 @@ void main()
 	printf( "Working directory: %s\n", getcwd( dir, 2048 ) );
 #endif
 	// initialize application
-	InitRenderTarget( SCRWIDTH, SCRHEIGHT );
-	Surface* screen = new Surface( SCRWIDTH, SCRHEIGHT );
+	InitRenderTarget( SCR_WIDTH, SCR_HEIGHT );
+	Surface* screen = new Surface( SCR_WIDTH, SCR_HEIGHT );
 	app = new Game();
 	app->screen = screen;
 	app->Init();
@@ -193,8 +193,8 @@ void main()
 		"f = vec4( GAMMA_OUT( color ), 1.0 );}";
 	char* sw = strstr( fs, "SCRWIDTH " ), * sh = strstr( fs, "SCRHEIGHT " );
 	char swt[16], sht[16];
-	sprintf( swt, "%i", SCRWIDTH / 4 );
-	sprintf( sht, "%i", SCRHEIGHT / 4 );
+	sprintf( swt, "%i", SCR_WIDTH / 4 );
+	sprintf( sht, "%i", SCR_HEIGHT / 4 );
 	memcpy( sw + 9, swt, strlen( swt ) );
 	memcpy( sh + 10, sht, strlen( sht ) );
 	Shader* shader = new Shader(
@@ -332,7 +332,7 @@ void main()
 	static Timer timer;
 	while (!glfwWindowShouldClose( window ))
 	{
-		deltaTime = min( 1/30.f, timer.elapsed() );
+		deltaTime = min( 500.0f, timer.elapsed() );
 		timer.reset();
 		app->Tick( deltaTime );
 		// send the rendering result to the screen using OpenGL

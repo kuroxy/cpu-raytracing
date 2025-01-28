@@ -20,6 +20,17 @@ void Game::Tick( float deltaTime )
 {
 	elapsedTime += deltaTime;
 
+
+	/*
+	
+		Game logic
+
+	*/
+
+
+
+	screen->Clear(make_color(1.f));
+
 	for (int y = 0; y < screen->height; y++)
 	{
 		for (int x = 0; x < screen->width; x++)

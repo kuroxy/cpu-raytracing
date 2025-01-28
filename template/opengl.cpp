@@ -75,7 +75,7 @@ void DrawQuad()
 		glBindVertexArray( 0 );
 		CheckGL();
 	}
-	glViewport( 0, 0, SCRWIDTH, SCRHEIGHT );
+	glViewport( 0, 0, SCR_WIDTH, SCR_HEIGHT );
 	glBindVertexArray( vao );
 	glDrawArrays( GL_TRIANGLES, 0, 6 );
 	glBindVertexArray( 0 );

@@ -20,6 +20,9 @@
     <ClCompile Include="template\tmpl8math.cpp">
       <Filter>tmpl8</Filter>
     </ClCompile>
+    <ClCompile Include="Ray.cpp">
+      <Filter>Raytracing</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
@@ -47,6 +50,9 @@
     <ClInclude Include="cl\tools.cl">
       <Filter>tmpl8</Filter>
     </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>Raytracing</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
@@ -58,6 +64,9 @@
   <ItemGroup>
     <Filter Include="tmpl8">
       <UniqueIdentifier>{67e1835a-da7a-404a-869a-46311cf222a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Raytracing">
+      <UniqueIdentifier>{1397ce54-9e9c-414f-b75d-7175688c7960}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

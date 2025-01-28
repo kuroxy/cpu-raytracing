@@ -7,15 +7,19 @@
 
 #pragma once
 
-// default screen resolution
-#define SCRWIDTH	1280
-#define SCRHEIGHT	720
+constexpr uint SCR_WIDTH = 1280;
+constexpr uint SCR_HEIGHT = 720;
+constexpr float SCR_ASPECT = static_cast<float>(SCR_WIDTH)/ static_cast<float>(SCR_HEIGHT);
+
+
+
+
 // #define FULLSCREEN
 
 // constants
-#define PI			3.14159265358979323846264f
-#define INVPI		0.31830988618379067153777f
-#define INV2PI		0.15915494309189533576888f
-#define TWOPI		6.28318530717958647692528f
-#define SQRT_PI_INV	0.56418958355f
-#define LARGE_FLOAT	1e34f
+constexpr float PI = 3.14159265358979323846264f;
+constexpr float INVPI = 0.31830988618379067153777f;
+constexpr float INV2PI = 0.15915494309189533576888f;
+constexpr float TWOPI = 6.28318530717958647692528f;
+constexpr float SQRT_PI_INV = 0.56418958355f;
+constexpr float LARGE_FLOAT = 1e34f;
