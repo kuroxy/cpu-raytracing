@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="template\opencl.cpp">
+      <Filter>tmpl8</Filter>
+    </ClCompile>
+    <ClCompile Include="template\opengl.cpp">
+      <Filter>tmpl8</Filter>
+    </ClCompile>
+    <ClCompile Include="template\scene.cpp">
+      <Filter>tmpl8</Filter>
+    </ClCompile>
+    <ClCompile Include="template\surface.cpp">
+      <Filter>tmpl8</Filter>
+    </ClCompile>
+    <ClCompile Include="template\template.cpp">
+      <Filter>tmpl8</Filter>
+    </ClCompile>
+    <ClCompile Include="template\tmpl8math.cpp">
+      <Filter>tmpl8</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="game.h" />
+    <ClInclude Include="template\common.h">
+      <Filter>tmpl8</Filter>
+    </ClInclude>
+    <ClInclude Include="template\opencl.h">
+      <Filter>tmpl8</Filter>
+    </ClInclude>
+    <ClInclude Include="template\opengl.h">
+      <Filter>tmpl8</Filter>
+    </ClInclude>
+    <ClInclude Include="template\precomp.h">
+      <Filter>tmpl8</Filter>
+    </ClInclude>
+    <ClInclude Include="template\scene.h">
+      <Filter>tmpl8</Filter>
+    </ClInclude>
+    <ClInclude Include="template\surface.h">
+      <Filter>tmpl8</Filter>
+    </ClInclude>
+    <ClInclude Include="template\tmpl8math.h">
+      <Filter>tmpl8</Filter>
+    </ClInclude>
+    <ClInclude Include="cl\tools.cl">
+      <Filter>tmpl8</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include="template\LICENSE" />
+    <None Include="cl\kernels.cl">
+      <Filter>tmpl8</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="tmpl8">
+      <UniqueIdentifier>{67e1835a-da7a-404a-869a-46311cf222a4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
