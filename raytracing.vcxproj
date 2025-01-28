@@ -122,8 +122,9 @@
   </ItemDefinitionGroup>
   <!-- END Custom section -->
   <ItemGroup>
-    <ClCompile Include="game.cpp" />
-    <ClCompile Include="Ray.cpp" />
+    <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\game.cpp" />
+    <ClCompile Include="src\Ray.cpp" />
     <ClCompile Include="template\opencl.cpp" />
     <ClCompile Include="template\opengl.cpp" />
     <ClCompile Include="template\scene.cpp">
@@ -140,9 +141,10 @@
     <ClCompile Include="template\tmpl8math.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Camera.h" />
     <ClInclude Include="cl\tools.cl" />
-    <ClInclude Include="game.h" />
-    <ClInclude Include="Ray.h" />
+    <ClInclude Include="include\game.h" />
+    <ClInclude Include="include\Ray.h" />
     <ClInclude Include="template\common.h" />
     <ClInclude Include="template\opencl.h" />
     <ClInclude Include="template\opengl.h" />

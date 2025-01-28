@@ -1043,6 +1043,6 @@ inline uint make_color(const float4 v) {
 }
 
 
-inline uint make_color(float r, float g, float b, const float a) {
+inline uint make_color(float r, float g, float b, float a) {
 	return static_cast<uint>(a * 255.f) << 24 | static_cast<uint>(r * 255.f) << 16 | static_cast<uint>(g * 255.f) << 8 | static_cast<uint>(b * 255.f);
 }

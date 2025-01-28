@@ -25,7 +25,7 @@ public:
 	int2 mousePos;
 
 
-	int elapsedTime{0};
+	float elapsedTime{0};
 };
 
 } // namespace Tmpl8

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="game.cpp" />
+    <ClCompile Include="src\game.cpp" />
     <ClCompile Include="template\opencl.cpp">
       <Filter>tmpl8</Filter>
     </ClCompile>
@@ -20,12 +20,13 @@
     <ClCompile Include="template\tmpl8math.cpp">
       <Filter>tmpl8</Filter>
     </ClCompile>
-    <ClCompile Include="Ray.cpp">
+    <ClCompile Include="src\Ray.cpp">
       <Filter>Raytracing</Filter>
     </ClCompile>
+    <ClCompile Include="src\Camera.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="game.h" />
+    <ClInclude Include="include\game.h" />
     <ClInclude Include="template\common.h">
       <Filter>tmpl8</Filter>
     </ClInclude>
@@ -50,9 +51,10 @@
     <ClInclude Include="cl\tools.cl">
       <Filter>tmpl8</Filter>
     </ClInclude>
-    <ClInclude Include="Ray.h">
+    <ClInclude Include="include\Ray.h">
       <Filter>Raytracing</Filter>
     </ClInclude>
+    <ClInclude Include="include\Camera.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
