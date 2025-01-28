@@ -4,6 +4,15 @@
 class Ray;
 
 
+struct RayHitInfo
+{
+	float3 worldPosition;
+	float3 worldNormal;
+	bool hit;
+};
+
+
+
 class Intersectable
 {
 public:
@@ -11,7 +20,7 @@ public:
 	Intersectable(float3 position, quat rotation);
 	virtual ~Intersectable() {};
 
-	virtual bool Intersect(const Ray& ray) const = 0;
+	virtual RayHitInfo Intersect(const Ray& ray) const = 0;
 
 	const float3& GetPosition() const { return position; }
 	const quat& GetRotation() const { return rotation; }
