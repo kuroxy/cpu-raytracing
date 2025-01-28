@@ -21,7 +21,7 @@ RayHitInfo Sphere::Intersect(const Ray& ray) const
     float discriminant = b * b - 4 * a * c;
   
 
-    if (discriminant < 0.f);
+    if (discriminant < 0.f)
     {
         hit.hit = false;
         return hit;

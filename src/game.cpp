@@ -17,7 +17,7 @@ float4 RayColor(const Ray& r, const Sphere& sphere) {
 	if (info.hit)
 	{
 		float3 normal = info.worldNormal;
-		return float4(normal.x, normal.y, normal.z, 1.f);
+		return float4(normal.x*.5f+.5f, normal.y * .5f + .5f, normal.z * .5f + .5f, 1.f);
 	}
 
 	float3 direction = r.GetDirection();
@@ -37,7 +37,10 @@ float4 RayColor(const Ray& r, const Sphere& sphere) {
 void Game::Init()
 {
 	mainCamera = Camera(SCR_WIDTH, SCR_HEIGHT, 3.f);
-	sphere = Sphere(float3(0.f, 0.f, -5.f), .5f);
+	sphere = Sphere(float3(0.f, 0.f, -5.f), 1.f);
+
+
+	sphere.Intersect(Ray(float3(0.f),float3(0,0,-1.f)));
 }
 
 // -----------------------------------------------------------
@@ -65,7 +68,6 @@ void Game::Tick( float deltaTime )
 			screen->pixels[x + y * screen->width] = make_color(RayColor(r, sphere));
 		}
 	}
-
 
 
 	/*
