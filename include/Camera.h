@@ -2,6 +2,7 @@
 class Camera
 {
 public:
+	Camera() = default;
 	Camera(uint windowWidth, uint windowHeight, float focalLength);
 
 

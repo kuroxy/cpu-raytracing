@@ -6,15 +6,24 @@
 #include "game.h"
 #include "Ray.h"
 #include "Camera.h"
+#include "Sphere.h"
 
 
 
-float4 RayColor(const Ray& r) {
+
+float4 RayColor(const Ray& r, const Sphere& sphere) {
+
+
+	if (sphere.Intersect(r))
+		return float4(1.f, 0.f, 0.f,1.f);
+
 	float3 direction = r.GetDirection();
-	float a = 0.5 * (direction.y + 1.0);
+	float a = 0.5f * (direction.y + 1.f);
 
-	return (1.0 - a) * float4(1.f, 1.f, 1.f, 1.f) + a * float4(0.5f, 0.7f, 1.f,1.f);
+	return (1.f - a) * float4(1.f, 1.f, 1.f, 1.f) + a * float4(0.5f, 0.7f, 1.f,1.f);
 }
+
+
 
 
 
@@ -24,27 +33,8 @@ float4 RayColor(const Ray& r) {
 // -----------------------------------------------------------
 void Game::Init()
 {
-	screen->Clear(make_color(1.f));
-
-
-	Camera camera(SCR_WIDTH, SCR_HEIGHT, 1.f);
-
-
-
-	for (int y = 0; y < screen->height; y++)
-	{
-		for (int x = 0; x < screen->width; x++)
-		{
-
-			float3 pixelCenter = camera.GetPixel00Loc() + (static_cast<float>(x) * camera.GetPixelDeltaU()) + (static_cast<float>(y) * camera.GetPixelDeltaV());
-
-			float3 rayDirection = pixelCenter - camera.GetPosition();
-			Ray r(camera.GetPosition(), rayDirection);
-
-			screen->pixels[x + y * screen->width] = make_color(RayColor(r));
-		}
-	}
-
+	mainCamera = Camera(SCR_WIDTH, SCR_HEIGHT, 3.f);
+	sphere = Sphere(float3(0.f, 0.f, -5.f), .5f);;
 }
 
 // -----------------------------------------------------------
@@ -53,6 +43,29 @@ void Game::Init()
 void Game::Tick( float deltaTime )
 {
 	elapsedTime += deltaTime;
+
+
+
+	screen->Clear(make_color(1.f));
+
+	float3 position = sphere.GetPosition();
+	position.y = sin(elapsedTime)*2.f;
+	sphere.SetPosition(position);
+
+	for (int y = 0; y < screen->height; y++)
+	{
+		for (int x = 0; x < screen->width; x++)
+		{
+
+			float3 pixelCenter = mainCamera.GetPixel00Loc() + (static_cast<float>(x) * mainCamera.GetPixelDeltaU()) + (static_cast<float>(y) * mainCamera.GetPixelDeltaV());
+
+			float3 rayDirection = pixelCenter - mainCamera.GetPosition();
+			Ray r(mainCamera.GetPosition(), rayDirection);
+
+			screen->pixels[x + y * screen->width] = make_color(RayColor(r, sphere));
+		}
+	}
+
 
 
 	/*

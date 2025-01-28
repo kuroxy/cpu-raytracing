@@ -3,6 +3,8 @@
 // IGAD/NHTV/BUAS/UU - Jacco Bikker - 2006-2024
 
 #pragma once
+#include "Camera.h"
+#include "Sphere.h"
 
 namespace Tmpl8
 {
@@ -24,8 +26,13 @@ public:
 	// data members
 	int2 mousePos;
 
+	//raytrace stuff
 
 	float elapsedTime{0};
+
+	Camera mainCamera;
+	Sphere sphere;
+
 };
 
 } // namespace Tmpl8

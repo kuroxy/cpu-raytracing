@@ -24,6 +24,8 @@
       <Filter>Raytracing</Filter>
     </ClCompile>
     <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\Intersectable.cpp" />
+    <ClCompile Include="src\Sphere.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\game.h" />
@@ -55,6 +57,8 @@
       <Filter>Raytracing</Filter>
     </ClInclude>
     <ClInclude Include="include\Camera.h" />
+    <ClInclude Include="include\Intersectable.h" />
+    <ClInclude Include="include\Sphere.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
